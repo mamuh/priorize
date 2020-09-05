@@ -4,7 +4,7 @@ import { Container, Tabs } from './styles';
 export default function Header() {
   return (
     <Container>
-      <h3>Vagas</h3>
+      <h2>Vagas</h2>
       <Tabs>
         <p>PRIORIZADAS</p>
         <p>STAND BY</p>
