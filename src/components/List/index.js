@@ -1,13 +1,12 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Card from '../Card';
 import { Container } from './styles';
-import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import { Droppable } from 'react-beautiful-dnd';
 
 export default function List() {
 
   const vagas = useSelector(state => state.vagas)
-
 
   return (
   <Droppable droppableId="priorizadas">
@@ -17,7 +16,6 @@ export default function List() {
         ref={provided.innerRef}
         {...provided.droppableProps}
       >
-
         <ul>
           {vagas.map((vaga, index) => (
             <Card key={vaga.id} index={index} id={vaga.id} name={`${vaga.id} - ${vaga.name}`} />
@@ -25,7 +23,6 @@ export default function List() {
 
         </ul>
       </Container>
-
     )}
   </Droppable>
   );

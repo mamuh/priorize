@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Tabs } from './styles';
+import { Container } from './styles';
 
 export default function Tab(props) {
 

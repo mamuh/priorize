@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import actions from '../../actions';
 import { Container } from './styles';
 import List from '../List';
-import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 export default function Board() {
   const vagas = useSelector(state => state.vagas)

@@ -12,9 +12,9 @@ export default function Header() {
     <Container>
       <h2>Vagas</h2>
       <Tabs>
-        <Tab name={"PRIORIZADAS"}/>
-        <Tab name={"STAND BY"}/>
-        <Tab name={"FECHADAS"}/>
+        <Tab name={"PRIORIZADAS"} onClick={setActive} />
+        <Tab name={"STAND BY"} onClick={setActive}/>
+        <Tab name={"FECHADAS"} onClick={setActive}/>
       </Tabs>
     </Container>
   );

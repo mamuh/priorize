@@ -6,9 +6,11 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
 
 import vagasReducer from './reducers/vagas_reducer';
+import currentTabReducer from './reducers/current_tab_reducer';
 
 const reducers = combineReducers({
-  vagas: vagasReducer
+  vagas: vagasReducer,
+  currentTab: currentTabReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

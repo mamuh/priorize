@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from './styles';
-import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import { Draggable } from 'react-beautiful-dnd';
 
 
 export default function Card(props) {
