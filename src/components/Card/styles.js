@@ -19,4 +19,9 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-between;
   }
+
+  .job-name {
+    width: 50%;
+    overflow:hidden;
+  }
 `

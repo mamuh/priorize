@@ -11,5 +11,6 @@ export const Container = styled.div`
     color: #fff;
     margin-top: 20px;
     font-size: 16px;
+    cursor: pointer;
   }
 `

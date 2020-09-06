@@ -21,7 +21,7 @@ export const initialState = {
     },
     {
       id: 2009,
-      name: "Analista Desenvolvedor Java SR",
+      name: "Analista Desenvolvedor Java SR REEEEAAALLLLYYYYYYYYYYYYYYYYYYYYYLOOOOOOOOOOOOOOOOOOOOONG TEXT HEREHEHE LOOOOOOOOONG LOOOOOOOOOOOOOOOOOOOOONGLOOOOOOOOOOOOOOOOOOOOONGLOOOOOOOOOOOOOOOOOOOOONGLOOOOOOOOOOOOOOOOOOOOONG",
       logo: "https://picsum.photos/200/300?random=1",
       abertura: "08/10/2020",
       termino: "21/10/2020",
