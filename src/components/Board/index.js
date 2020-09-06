@@ -21,7 +21,6 @@ export default function Board() {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-    <button>expandir todas</button>
       <Container>
         <List />
       </Container>
