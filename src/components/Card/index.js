@@ -14,7 +14,7 @@ export default function Card(props) {
         {...provided.dragHandleProps}
       >
         <header>
-          { true && <img src={`https://picsum.photos/200/300?random=${props.index}`} alt="Logo" /> }
+          { true && <img src={`https://picsum.photos/200/300?random=${props.id}`} alt="Logo" /> }
           <h5>{props.name}</h5>
           <h3>|||</h3>
         </header>
