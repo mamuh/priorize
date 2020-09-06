@@ -11,7 +11,6 @@ function Login() {
     console.log(response);
     console.log(response.profileObj)
     history.push('/vagas')
-
   }
 
   return (
@@ -23,7 +22,7 @@ function Login() {
             clientId="914438730685-ph5j5bkec0v0eicoeo8lagp763nor8aj.apps.googleusercontent.com"
             buttonText="ENTRAR COM GOOGLE"
             onSuccess={responseGoogle}
-            onFailure={responseGoogle}
+            onFailure={null}
             cookiePolicy={'single_host_origin'}
             isSignedIn={true}
           />
