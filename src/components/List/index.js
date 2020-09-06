@@ -11,7 +11,6 @@ export default function List() {
   return (
   <Droppable droppableId="priorizadas">
     {(provided, snapshot) => (
-
       <Container
         ref={provided.innerRef}
         {...provided.droppableProps}

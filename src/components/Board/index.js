@@ -10,21 +10,18 @@ export default function Board() {
   const dispatch = useDispatch()
 
   const onDragEnd = (result) => {
-    if(!result.destination) {
-      return;
-    }
-
+    if(!result.destination) { return; }
     const startIndex = result.source.index
     const endIndex = result.destination.index
-
     const vagasCopy = Array.from(vagas)
     const [removed] = vagasCopy.splice(startIndex, 1)
     vagasCopy.splice(endIndex, 0, removed)
-
     dispatch(actions.setVagas(vagasCopy))
   }
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
+    <button>expandir todas</button>
       <Container>
         <List />
       </Container>

@@ -4,11 +4,7 @@ export const Container = styled.div`
   flex: 1 1;
   text-align: center;
   height: 35px;
-
-  & + div {
-    border-bottom: 3px solid black;
-  }
-
+  cursor: pointer;
 
   .tab {
     height: 35px;

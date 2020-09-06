@@ -6,16 +6,16 @@ import c from 'classnames';
 
 export default function Tab(props) {
   const dispatch = useDispatch()
+  const currentTab = useSelector(state => state.currentTab);
+  const isActive = currentTab == props.name;
 
   const changeTab = (e) => {
-    e.target.classList.add("tab-active")
-    console.log(e.target.innerHTML)
     dispatch(actions.changeCurrentTab(e.target.innerHTML))
   }
 
   return (
     <Container>
-      <div className={c({'tab': true, 'tab-active': false})} onClick={changeTab}>
+      <div className={c({'tab': true, 'tab-active': isActive})} onClick={changeTab}>
         {props.name}
       </div>
     </Container>
