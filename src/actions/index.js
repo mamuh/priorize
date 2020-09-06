@@ -5,4 +5,11 @@ const setVagas = (vagas) => {
   }
 }
 
-export default { setVagas }
+const changeCurrentTab = (activeTab) => {
+  return {
+    type: 'SET_ACTIVE_TAB',
+    payload: activeTab
+  }
+}
+
+export default { setVagas, changeCurrentTab }
