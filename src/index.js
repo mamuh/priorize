@@ -12,6 +12,8 @@ import currentTabReducer from './reducers/current_tab_reducer';
 
 const reducers = combineReducers({
   vagas: vagasReducer,
+  // vagasStandby: ,
+  // vagasFechadas: ,
   currentTab: currentTabReducer,
 });
 

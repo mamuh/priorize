@@ -4,7 +4,7 @@ import Card from '../Card';
 import { Container } from './styles';
 import { Droppable } from 'react-beautiful-dnd';
 
-export default function List() {
+export default function List(props) {
 
   const vagas = useSelector(state => state.vagas)
 
@@ -17,9 +17,11 @@ export default function List() {
       >
         <ul>
           {vagas.map((vaga, index) => (
-            <Card key={vaga.id} index={index} id={vaga.id} name={`${vaga.id} - ${vaga.name}`} />
+            props.currentTab == vaga.status ?
+              <Card key={vaga.id} index={index} id={vaga.id} name={`${vaga.id} - ${vaga.name}`} data={vaga} />
+              :
+             (null)
           ))}
-
         </ul>
       </Container>
     )}

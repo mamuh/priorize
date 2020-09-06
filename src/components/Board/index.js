@@ -7,6 +7,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 
 export default function Board() {
   const vagas = useSelector(state => state.vagas)
+  const currentTab = useSelector(state => state.currentTab)
   const dispatch = useDispatch()
 
   const onDragEnd = (result) => {
@@ -22,7 +23,7 @@ export default function Board() {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Container>
-        <List />
+        <List currentTab={currentTab} />
       </Container>
     </DragDropContext>
   );

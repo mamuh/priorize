@@ -4,9 +4,10 @@ import { Draggable } from 'react-beautiful-dnd';
 
 
 export default function Card(props) {
+  const { id, name, logo, status } = props.data;
 
   return (
-    <Draggable draggableId={props.id.toString()} index={props.index}>
+    <Draggable draggableId={id.toString()} index={props.index}>
     {(provided, snapshot) => (
       <Container
         ref={provided.innerRef}
@@ -14,12 +15,13 @@ export default function Card(props) {
         {...provided.dragHandleProps}
       >
         <header>
-          { true && <img src={`https://picsum.photos/200/300?random=${props.id}`} alt="Logo" /> }
-          <div class="job-name"><h5>{props.name}</h5></div>
+          { true && <img src={logo} alt="Logo" /> }
+          <div className="job-name">
+            <h5>{id} - ({status}) - {name}</h5>
+          </div>
           <h3>|||</h3>
         </header>
       </Container>
-
     )}
     </Draggable>
   );

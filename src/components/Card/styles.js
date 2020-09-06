@@ -22,6 +22,7 @@ export const Container = styled.div`
 
   .job-name {
     width: 50%;
+    text-overflow: ellipsis;
     overflow:hidden;
   }
 `
