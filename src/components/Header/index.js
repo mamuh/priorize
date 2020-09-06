@@ -1,7 +1,5 @@
 import React from 'react';
 import { Container, Tabs } from './styles';
-import c from 'classnames';
-// import { useSelector, useDispatch } from 'react-redux';
 import Tab from './Tab';
 
 export default function Header() {
@@ -11,7 +9,7 @@ export default function Header() {
       <h2>Vagas</h2>
       <Tabs>
         {tabs.map((tab, index) => (
-          <Tab name={tab.name} key={index} onClick={null} />
+          <Tab name={tab.name} key={index} />
         ))}
       </Tabs>
     </Container>

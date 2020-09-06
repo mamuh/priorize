@@ -20,6 +20,16 @@ export const Container = styled.div`
     justify-content: space-between;
   }
 
+  .details {
+    margin-top: 20px;
+    border-top: 1px solid rgba(0,0,0, 0.1);
+    display: none;
+  }
+
+  .card-expanded {
+    display: block !important;
+  }
+
   .job-name {
     width: 50%;
     text-overflow: ellipsis;
