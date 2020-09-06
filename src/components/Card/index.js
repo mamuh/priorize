@@ -12,11 +12,12 @@ export default function Card(props) {
     <Draggable draggableId={id.toString()} index={props.index}>
     {(provided, snapshot) => (
       <Container
+        onClick={() => toggleCard(!isOpen)}
         ref={provided.innerRef}
         {...provided.draggableProps}
         {...provided.dragHandleProps}
       >
-        <header onClick={() => toggleCard(!isOpen)}>
+        <header>
           { true && <img src={logo} alt="Logo" /> }
           <div className="job-name">
             <h5>{id} - ({status}) - {name}</h5>
