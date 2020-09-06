@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   text-align: center;
+  height: 100%;
 
   button {
     background: #52e5e7;

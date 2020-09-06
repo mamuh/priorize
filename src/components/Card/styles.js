@@ -5,9 +5,12 @@ export const Container = styled.div`
   padding: 15px 20px;
   margin: 20px;
   border-radius: 3px;
+  cursor: grab;
 
   img {
     width: 60px;
+    height: 60px;
+    object-fit: cover;
     border-radius: 50%;
   }
 

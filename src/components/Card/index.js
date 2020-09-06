@@ -1,14 +1,32 @@
 import React from 'react';
 import { Container } from './styles';
+import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+// import  { useDrag } from 'react-dnd';
+// import ITEM_TYPE from '../Constants'
 
-export default function Header() {
+export default function Card(props) {
+  // const [{ isDragging }, dragRef] = useDrag({
+  //   item: { type: ITEM_TYPE },
+  //   collect: monitor => ({
+  //     isDragging: monitor.isDragging(),
+  //   })
+  // })
   return (
-    <Container>
-      <header>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/C-und-A-Logo-2011.svg/626px-C-und-A-Logo-2011.svg.png" alt="Logo" />
-        <h5>3952 - Analista Desenvolvedor Java SR</h5>
-        <h3>|||</h3>
-      </header>
-    </Container>
+    <Draggable draggableId={props.id} index={props.index} index={props.index}>
+    {(provided, snapshot) => (
+      <Container
+        ref={provided.innerRef}
+        {...provided.draggableProps}
+        {...provided.dragHandleProps}
+      >
+        <header>
+          { true && <img src={`https://picsum.photos/200/300?random=${props.index}`} alt="Logo" /> }
+          <h5>{true && props.name}</h5>
+          <h3>|||</h3>
+        </header>
+      </Container>
+
+    )}
+    </Draggable>
   );
 }
