@@ -2,11 +2,16 @@ import React from 'react';
 import GlobalStyle from './styles/global';
 import LoginStyle from './styles/login';
 import GoogleLogin from 'react-google-login';
+import { useHistory } from 'react-router-dom';
 
 function Login() {
+  let history = useHistory()
+
   const responseGoogle = (response) => {
     console.log(response);
     console.log(response.profileObj)
+    history.push('/vagas')
+
   }
 
   return (
