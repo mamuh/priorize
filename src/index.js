@@ -7,6 +7,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory as history } from 'history';
+import firebase from 'firebase';
 
 import { initialState } from './temporary_db';
 
@@ -20,6 +21,18 @@ const reducers = combineReducers({
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middlewares = applyMiddleware(logger);
+
+var firebaseConfig = {
+    apiKey: "AIzaSyBcpFUhtYeCqawdjTfxvmraA-FoedPmRk0",
+    authDomain: "priorize.firebaseapp.com",
+    databaseURL: "https://priorize.firebaseio.com",
+    projectId: "priorize",
+    storageBucket: "priorize.appspot.com",
+    messagingSenderId: "914438730685",
+    appId: "1:914438730685:web:71aec05c2f7d19f1cb98d4"
+  };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 
 ReactDOM.render(

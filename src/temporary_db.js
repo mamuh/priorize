@@ -142,7 +142,7 @@ export const initialState = {
       venda: 100
     },
     {
-      id: 13268,
+      id: 1338,
       name: "Analista Desenvolvedor Java SR",
       logo: "https://picsum.photos/200/300?random=100",
       status: "PRIORIZADAS",
@@ -162,7 +162,47 @@ export const initialState = {
       venda: 900
     },
     {
-      id: 10172,
+      id: 10372,
+      name: "Analista Desenvolvedor Java SR",
+      logo: "https://picsum.photos/200/300?random=26",
+      status: "PRIORIZADAS",
+      abertura: "08/10/2020",
+      termino: "21/10/2020",
+      vagas: 3,
+      remuneracao: [
+        {
+          tipo: "CLT",
+          valor: 1200.30
+        },
+        {
+          tipo: "Ben",
+          valor: 600.27
+        },
+      ],
+      venda: 900
+    },
+    {
+      id: 102,
+      name: "Analista Desenvolvedor Java SR",
+      logo: "https://picsum.photos/200/300?random=26",
+      status: "PRIORIZADAS",
+      abertura: "08/10/2020",
+      termino: "21/10/2020",
+      vagas: 3,
+      remuneracao: [
+        {
+          tipo: "CLT",
+          valor: 1200.30
+        },
+        {
+          tipo: "Ben",
+          valor: 600.27
+        },
+      ],
+      venda: 900
+    },
+    {
+      id: 81263,
       name: "Analista Desenvolvedor Java SR",
       logo: "https://picsum.photos/200/300?random=26",
       status: "PRIORIZADAS",

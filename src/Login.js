@@ -6,6 +6,7 @@ import GoogleLogin from 'react-google-login';
 function Login() {
   const responseGoogle = (response) => {
     console.log(response);
+    console.log(response.profileObj)
   }
 
   return (
