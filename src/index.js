@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import Login from './Login';
+import Profile from './Profile';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
@@ -45,6 +46,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact component={Login} />
         <Route path="/vagas" exact component={App} />
+        <Route path="/profile" exact component={Profile} />
       </Switch>
     </Router>
   </Provider>,
