@@ -22,14 +22,15 @@ export const Container = styled.div`
 
   .details {
     margin-top: 20px;
+    padding: 20px 0;
     border-top: 1px solid rgba(0,0,0, 0.1);
     display: none;
   }
 
   .card-expanded {
     display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 40px 40px;
+    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
     text-align: left;
   }
 
@@ -38,5 +39,13 @@ export const Container = styled.div`
     text-overflow: ellipsis;
     overflow:hidden;
     text-align: left;
+  }
+
+  .faded {
+    opacity: 0.5;
+  }
+
+  .card-data {
+    margin: 2px 0 3px 0;
   }
 `

@@ -18,7 +18,7 @@ export const initialState = {
           valor: 600.27
         },
       ],
-      venda: 900
+      vendas: 900
     },
     {
       id: 2009,
@@ -38,7 +38,7 @@ export const initialState = {
           valor: 600.27
         },
       ],
-      venda: 2900
+      vendas: 2900
     },
     {
       id: 3213,
@@ -58,7 +58,7 @@ export const initialState = {
           valor: 600.27
         },
       ],
-      venda: 200
+      vendas: 200
     },
     {
       id: 77,
@@ -78,7 +78,7 @@ export const initialState = {
           valor: 600.27
         },
       ],
-      venda: 100
+      vendas: 100
     },
     {
       id: 23761,
@@ -99,7 +99,7 @@ export const initialState = {
           valor: 600.27
         },
       ],
-      venda: 100
+      vendas: 100
     },
     {
       id: 9827,
@@ -119,7 +119,7 @@ export const initialState = {
           valor: 600.27
         },
       ],
-      venda: 100
+      vendas: 100
     },
     {
       id: 90092,
@@ -139,7 +139,7 @@ export const initialState = {
           valor: 600.27
         },
       ],
-      venda: 100
+      vendas: 100
     },
     {
       id: 1338,
@@ -159,7 +159,7 @@ export const initialState = {
           valor: 600.27
         },
       ],
-      venda: 900
+      vendas: 900
     },
     {
       id: 10372,
@@ -179,7 +179,7 @@ export const initialState = {
           valor: 600.27
         },
       ],
-      venda: 900
+      vendas: 900
     },
     {
       id: 102,
@@ -199,7 +199,7 @@ export const initialState = {
           valor: 600.27
         },
       ],
-      venda: 900
+      vendas: 900
     },
     {
       id: 81263,
@@ -219,7 +219,7 @@ export const initialState = {
           valor: 600.27
         },
       ],
-      venda: 900
+      vendas: 900
     },
   ]
 }

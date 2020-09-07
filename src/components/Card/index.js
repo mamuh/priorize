@@ -5,7 +5,7 @@ import { Draggable } from 'react-beautiful-dnd';
 
 
 export default function Card(props) {
-  const { id, name, logo, status } = props.data
+  const { id, name, logo, status, abertura, termino, vagas, vendas, remuneracao } = props.data
   const [isOpen, toggleCard] = useState(false)
 
   return (
@@ -25,11 +25,26 @@ export default function Card(props) {
           <h3>|||</h3>
         </header>
         <div className={c({'details': true, 'card-expanded': isOpen})}>
-          <p>Abertura</p>
-          <p>Término</p>
-          <p>Vagas</p>
-          <p>Remuneração</p>
-          <p>Vendas</p>
+          <div>
+            <p className="faded">Abertura:</p>
+            <p className="card-data">{abertura}</p>
+          </div>
+          <div>
+            <p className="faded">Término:</p>
+            <p className="card-data">{termino}</p>
+          </div>
+          <div>
+            <p className="faded">Vagas:</p>
+            <p className="card-data">{vagas}</p>
+          </div>
+          <div>
+            <p className="faded">Remuneração:</p>
+            <p className="card-data remuneracao">{remuneracao.map(rem => {return <div>{rem.tipo}: {rem.valor}</div>})}</p>
+          </div>
+          <div>
+            <p className="faded">Vendas:</p>
+            <p className="card-data">{vendas}</p>
+          </div>
         </div>
       </Container>
     )}
