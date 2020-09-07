@@ -14,10 +14,12 @@ import { initialState } from './temporary_db';
 
 import vagasReducer from './reducers/vagas_reducer';
 import currentTabReducer from './reducers/current_tab_reducer';
+import expandedReducer from './reducers/expanded_reducer';
 
 const reducers = combineReducers({
   vagas: vagasReducer,
   currentTab: currentTabReducer,
+  allExpanded: expandedReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

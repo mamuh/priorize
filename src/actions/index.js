@@ -12,4 +12,10 @@ const changeCurrentTab = (activeTab) => {
   }
 }
 
-export default { setVagas, changeCurrentTab }
+const toggleExpansion = () => {
+  return {
+    type: 'TOGGLE_EXPANDED'
+  }
+}
+
+export default { setVagas, changeCurrentTab, toggleExpansion }

@@ -4,10 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import actions from '../../actions';
 
 export default function ExpandButton() {
+  const dispatch = useDispatch();
+  const allExpanded = useSelector(state => state.allExpanded)
 
   return (
     <Container>
-      <button>expandir todas</button>
+      <button onClick={() => dispatch({type: 'TOGGLE_EXPANDED'})}>
+        {allExpanded ? "ocultar todas" : "expandir todas"}
+      </button>
     </Container>
   );
 }

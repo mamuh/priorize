@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import c from 'classnames';
 import { Container } from './styles';
 import { Draggable } from 'react-beautiful-dnd';
@@ -7,6 +8,8 @@ import { Draggable } from 'react-beautiful-dnd';
 export default function Card(props) {
   const { id, name, logo, status, abertura, termino, vagas, vendas, remuneracao } = props.data
   const [isOpen, toggleCard] = useState(false)
+  const allExpanded = useSelector(state => state.allExpanded)
+  const shouldOpen = isOpen || allExpanded
 
   return (
     <Draggable draggableId={id.toString()} index={props.index}>
@@ -24,7 +27,7 @@ export default function Card(props) {
           </div>
           <h3>|||</h3>
         </header>
-        <div className={c({'details': true, 'card-expanded': isOpen})}>
+        <div className={c({'details': true, 'card-expanded': shouldOpen})}>
           <div>
             <p className="faded">Abertura:</p>
             <p className="card-data">{abertura}</p>
@@ -39,7 +42,7 @@ export default function Card(props) {
           </div>
           <div>
             <p className="faded">Remuneração:</p>
-            <p className="card-data remuneracao">{remuneracao.map(rem => {return <div>{rem.tipo}: {rem.valor}</div>})}</p>
+            <div className="card-data remuneracao">{remuneracao.map((rem, index) => (<div key={index}>{rem.tipo}: {rem.valor}</div>))}</div>
           </div>
           <div>
             <p className="faded">Vendas:</p>
