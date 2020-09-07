@@ -25,7 +25,11 @@ export default function Card(props) {
           <h3>|||</h3>
         </header>
         <div className={c({'details': true, 'card-expanded': isOpen})}>
-          rest of the content here
+          <p>Abertura</p>
+          <p>Término</p>
+          <p>Vagas</p>
+          <p>Remuneração</p>
+          <p>Vendas</p>
         </div>
       </Container>
     )}

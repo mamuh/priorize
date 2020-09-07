@@ -27,12 +27,16 @@ export const Container = styled.div`
   }
 
   .card-expanded {
-    display: block !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 40px 40px;
+    text-align: left;
   }
 
   .job-name {
     width: 50%;
     text-overflow: ellipsis;
     overflow:hidden;
+    text-align: left;
   }
 `
