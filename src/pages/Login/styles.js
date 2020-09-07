@@ -1,7 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
-export default createGlobalStyle`
-  .login-page {
+export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;

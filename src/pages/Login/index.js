@@ -1,6 +1,6 @@
 import React from 'react';
-import GlobalStyle from './styles/global';
-import LoginStyle from './styles/login';
+import GlobalStyle from '../../styles/global';
+import { Container } from './styles';
 import GoogleLogin from 'react-google-login';
 import { useHistory } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ function Login() {
 
   return (
     <>
-      <div className="login-page">
+      <Container>
         <div className="content">
           <h1>P R I O R I Z E</h1>
           <GoogleLogin
@@ -27,8 +27,7 @@ function Login() {
             isSignedIn={true}
           />
         </div>
-      </div>
-      <LoginStyle />
+      </Container>
       <GlobalStyle />
     </>
   );
