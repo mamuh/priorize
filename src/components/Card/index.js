@@ -7,49 +7,48 @@ import { Draggable } from 'react-beautiful-dnd';
 
 export default function Card(props) {
   const { id, name, logo, status, abertura, termino, vagas, vendas, remuneracao } = props.data
-  let [isOpen, toggleCard] = useState(false)
+  // let [isOpen, toggleCard] = useState(false)
+  // let [opened, whatever] = useState(false)
   const allExpanded = useSelector(state => state.allExpanded)
 
-  let opened
+  // useEffect(() => {
+  //   console.log(`is open is now ${isOpen}`);
+  //   console.log(`allExpanded is now ${allExpanded}`);
+  // });
 
-  useEffect(() => {
-    console.log(`is open is now ${isOpen}`);
-    console.log(`allExpanded is now ${allExpanded}`);
-  });
-
-  useEffect(() => {
-    if (allExpanded) {
-      if (isOpen) {
-        isOpen = true
-        opened = true
-        console.log('first')
-        console.log(`OPENED now ${opened}`);
-      } else {
-        isOpen = true
-        opened = false
-        console.log('second')
-        console.log(`OPENED now ${opened}`);
-      }
-    } else if (!allExpanded) {
-      if (isOpen) {
-        opened = true
-        isOpen = true
-        console.log('third')
-        console.log(`OPENED now ${opened}`);
-      } else {
-        opened = false
-        isOpen = false
-        console.log('fourth')
-        console.log(`OPENED now ${opened}`);
-      }
-    }
-  });
+  // useEffect(() => {
+  //   if (allExpanded) {
+  //     if (isOpen) {
+  //       isOpen = true
+  //       opened = true
+  //       console.log('first')
+  //       console.log(`OPENED now ${opened}`);
+  //     } else {
+  //       isOpen = true
+  //       opened = true
+  //       console.log('second')
+  //       console.log(`OPENED now ${opened}`);
+  //     }
+  //   } else if (!allExpanded) {
+  //     if (isOpen) {
+  //       opened = true
+  //       isOpen = true
+  //       console.log('third')
+  //       console.log(`OPENED now ${opened}`);
+  //     } else {
+  //       opened = false
+  //       isOpen = false
+  //       console.log('fourth')
+  //       console.log(`OPENED now ${opened}`);
+  //     }
+  //   }
+  // });
 
   return (
     <Draggable draggableId={id.toString()} index={props.index}>
     {(provided, snapshot) => (
       <Container
-        onClick={() => toggleCard(!isOpen)}
+        // onClick={() => toggleCard(!isOpen)}
         ref={provided.innerRef}
         {...provided.draggableProps}
         {...provided.dragHandleProps}
@@ -61,7 +60,7 @@ export default function Card(props) {
           </div>
           <h3>|||</h3>
         </header>
-        <div className={isOpen || allExpanded ? "details card-expanded" : "details"}>
+        <div className={allExpanded ? "details card-expanded" : "details"}>
           <div>
             <p className="faded">Abertura:</p>
             <p className="card-data">{abertura}</p>
