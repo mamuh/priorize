@@ -5,6 +5,13 @@ export const Container = styled.div`
   height: 100%;
 
   ul:last-child {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
   }
+
+  @media only screen and (max-width: 700px) {
+    ul:last-child {
+    margin-bottom: 130px;
+  }
+  }
+
 `
