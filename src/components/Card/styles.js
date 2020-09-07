@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background: #fff;
   padding: 15px 20px;
-  margin: 20px;
+  margin: 0 20px 20px 20px;
   border-radius: 3px;
   cursor: grab;
 
