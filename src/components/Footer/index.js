@@ -3,10 +3,12 @@ import { Container } from './styles';
 import { useHistory } from 'react-router-dom';
 
 export default function Footer() {
-  let history = useHistory();
+  let history = useHistory(
+    );
 
   return (
     <Container>
+      <div className="clear"></div>
       <div className="footer">
         <img src="https://image.flaticon.com/icons/svg/130/130918.svg" alt="vagas" onClick={() => {history.push('/vagas')}}/>
         <img src="https://image.flaticon.com/icons/svg/2097/2097743.svg" alt=""/>
