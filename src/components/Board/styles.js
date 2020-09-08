@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   min-height: 100%;
-  padding: 90px 0;
+  padding-bottom: 90px;
 
   button {
     background: #52e5e7;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   text-align: center;
   padding-bottom: 20px;
+  margin-top: 170px;
 
   button {
     width: 170px;
@@ -11,7 +12,6 @@ export const Container = styled.div`
     padding: 12px 20px;
     border: none;
     color: #fff;
-    margin-top: 20px;
     font-size: 16px;
     cursor: pointer;
   }
