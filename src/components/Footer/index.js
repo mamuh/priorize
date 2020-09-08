@@ -8,8 +8,8 @@ export default function Footer() {
 
   return (
     <Container>
-      <div className="clear"></div>
       <div className="footer">
+      <div className="clear"></div>
         <img src="https://image.flaticon.com/icons/svg/130/130918.svg" alt="vagas" onClick={() => {history.push('/vagas')}}/>
         <img src="https://image.flaticon.com/icons/svg/2097/2097743.svg" alt=""/>
         <img src="https://image.flaticon.com/icons/svg/3010/3010912.svg" alt=""/>
