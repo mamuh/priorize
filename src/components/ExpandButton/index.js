@@ -9,7 +9,12 @@ export default function ExpandButton() {
 
   return (
     <Container>
-      <button onClick={() => dispatch({type: 'TOGGLE_EXPANDED'})}>
+      <button
+        onClick={() => {
+          dispatch({type: 'TOGGLE_EXPANDED'});
+          dispatch({type: 'TOGGLE_IGNORE', payload: false})
+        }}
+      >
         {allExpanded ? "ocultar todas" : "expandir todas"}
       </button>
     </Container>

@@ -18,4 +18,11 @@ const toggleExpansion = () => {
   }
 }
 
-export default { setVagas, changeCurrentTab, toggleExpansion }
+const toggleIgnoreExpanded = (boolean) => {
+  return {
+    type: 'TOGGLE_IGNORE',
+    payload: boolean
+  }
+}
+
+export default { setVagas, changeCurrentTab, toggleExpansion, toggleIgnoreExpanded }

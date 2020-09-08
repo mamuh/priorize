@@ -15,11 +15,13 @@ import { initialState } from './temporary_db';
 import vagasReducer from './reducers/vagas_reducer';
 import currentTabReducer from './reducers/current_tab_reducer';
 import expandedReducer from './reducers/expanded_reducer';
+import ignoreExpandedReducer from './reducers/ignore_expanded_reducer'
 
 const reducers = combineReducers({
   vagas: vagasReducer,
   currentTab: currentTabReducer,
   allExpanded: expandedReducer,
+  ignoreExpanded: ignoreExpandedReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

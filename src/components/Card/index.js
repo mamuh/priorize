@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import actions from '../../actions';
 import c from 'classnames';
 import { Container } from './styles';
 import { Draggable } from 'react-beautiful-dnd';
@@ -8,50 +9,31 @@ import { Draggable } from 'react-beautiful-dnd';
 export default function Card(props) {
   const { id, name, logo, status, abertura, termino, vagas, vendas, remuneracao } = props.data
   let [isOpen, toggleCard] = useState(false)
-  let [opened, whatever] = useState(false)
   const allExpanded = useSelector(state => state.allExpanded)
+  const ignoreExpanded = useSelector(state => state.ignoreExpanded)
+  const dispatch = useDispatch()
+
+
+  const toggleExpanded = () => {
+    dispatch(actions.toggleIgnoreExpanded(true))
+    toggleCard(!isOpen)
+  }
 
   useEffect(() => {
-    if (allExpanded) {
-      isOpen = true
-    }
-    console.log(`is open is now ${isOpen}`);
-    console.log(`allExpanded is now ${allExpanded}`);
-  });
-
-  useEffect(() => {
-    if (allExpanded) {
-      if (isOpen) {
+    if (!ignoreExpanded) {
+      if (allExpanded) {
         toggleCard(true)
-        whatever(true)
-        console.log('first')
-        console.log(`OPENED now ${opened}`);
-      } else {
-        toggleCard(true)
-        whatever(true)
-        console.log('second')
-        console.log(`OPENED now ${opened}`);
-      }
-    } else if (!allExpanded) {
-      if (isOpen) {
-        toggleCard(!isOpen)
-        whatever(true)
-        console.log('third')
-        console.log(`OPENED now ${opened}`);
       } else {
         toggleCard(false)
-        whatever(false)
-        console.log('fourth')
-        console.log(`OPENED now ${opened}`);
       }
     }
-  });
+  })
 
   return (
     <Draggable draggableId={id.toString()} index={props.index}>
     {(provided, snapshot) => (
       <Container
-        onClick={() => toggleCard(!isOpen)}
+        onClick={() => toggleExpanded()}
         ref={provided.innerRef}
         {...provided.draggableProps}
         {...provided.dragHandleProps}
@@ -63,7 +45,7 @@ export default function Card(props) {
           </div>
           <h3>|||</h3>
         </header>
-        <div className={opened ? "details card-expanded" : "details"}>
+        <div className={isOpen ? "details card-expanded" : "details"}>
           <div>
             <p className="faded">Abertura:</p>
             <p className="card-data">{abertura}</p>
