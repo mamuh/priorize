@@ -23,6 +23,7 @@ export default function List(props) {
              (null)
           ))}
         </ul>
+        <img src="https://image.flaticon.com/icons/svg/463/463292.svg" alt="" width="100" className="footer-clear" />
       </Container>
     )}
   </Droppable>
