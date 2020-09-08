@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100%;
-  padding-bottom: 90px;
+  min-height: 100%;
+  padding: 90px 0;
 
   button {
     background: #52e5e7;
@@ -12,5 +12,9 @@ export const Container = styled.div`
     color: #fff;
     margin-top: 20px;
     font-size: 16px;
+  }
+
+  @media only screen and (max-width: 700px) {
+    padding-bottom: 300px;
   }
 `

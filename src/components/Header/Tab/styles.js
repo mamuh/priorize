@@ -9,6 +9,7 @@ export const Container = styled.div`
   .tab {
     height: 35px;
     border-bottom: 3px solid transparent;
+    transition: all 0.3s;
   }
 
   .tab-active {
