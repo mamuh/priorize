@@ -8,7 +8,8 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory as history } from 'history';
-import firebase from 'firebase';
+import firebase from "firebase/app";
+import { FirebaseAuthProvider, FirebaseAuthConsumer } from "@react-firebase/auth";
 
 import { initialState } from './temporary_db';
 
@@ -41,19 +42,21 @@ firebase.initializeApp(firebaseConfig);
 
 
 ReactDOM.render(
-  <Provider store={createStore(
-    reducers,
-    initialState,
-    composeEnhancers(middlewares)
-  )}>
-    <Router history={history}>
-      <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/vagas" exact component={App} />
-        <Route path="/profile" exact component={Profile} />
-      </Switch>
-    </Router>
-  </Provider>,
+  // <FirebaseAuthProvider firebase={firebase}>
+    <Provider store={createStore(
+      reducers,
+      initialState,
+      composeEnhancers(middlewares)
+    )}>
+      <Router history={history}>
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <Route path="/vagas" exact component={App} />
+          <Route path="/profile" exact component={Profile} />
+        </Switch>
+      </Router>
+    </Provider>,
+  // </FirebaseAuthProvider>,
   document.getElementById('root')
 );
 

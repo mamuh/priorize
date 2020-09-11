@@ -35,10 +35,13 @@ export const Container = styled.div`
   }
 
   .job-name {
-    width: 50%;
-    text-overflow: ellipsis;
-    overflow:hidden;
+    width: 65%;
     text-align: left;
+    h5 {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
   }
 
   .faded {

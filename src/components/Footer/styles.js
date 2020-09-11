@@ -23,6 +23,4 @@ export const Container = styled.div`
     width: 35px;
     height: 35px;
   }
-
-  .clear { clear: both; height: 60px; }
 `
