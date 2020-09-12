@@ -20,14 +20,15 @@ export default class Header extends Component {
    componentDidMount() {
      window.addEventListener("scroll", this.resizeHeaderOnScroll);
    }
+
    resizeHeaderOnScroll() {
      const distanceY = window.pageYOffset || document.documentElement.scrollTop,
        shrinkOn = 70,
        headerEl = document.getElementById("js-header");
 
-     if (distanceY > shrinkOn) {
+     if (headerEl && distanceY > shrinkOn) {
        headerEl.classList.add("smaller");
-     } else {
+     } else if (headerEl) {
        headerEl.classList.remove("smaller");
      }
    }
