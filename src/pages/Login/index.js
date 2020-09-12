@@ -20,7 +20,9 @@ const Login = ({ history }) => {
         .signInWithEmailAndPassword(email.value, password.value);
       history.push("/vagas");
     } catch(error) {
-      alert("Invalid user or password");
+      alert("Usuário ou senha invalidos"); // TEMPORARY!! MAKE PROPER METHOD
+      email.value = "";
+      password.value = "";
     }
   }, [history]);
 
@@ -42,15 +44,16 @@ const Login = ({ history }) => {
     showForm(true)
   }
 
-
   return (
     <Container>
       <div className="content">
         <h1>P R I O R I Z E</h1>
-
-
-        { shouldDisplayForm ? <LoginForm handleLogin={handleLogin} /> : <button onClick={handleClick}>Entrar com email</button> }
-
+        {
+          shouldDisplayForm ?
+          <LoginForm handleLogin={handleLogin} />
+          :
+          <button onClick={handleClick}>Entrar com email</button>
+        }
       </div>
     <GlobalStyle />
     </Container>
