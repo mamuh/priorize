@@ -3,6 +3,8 @@ import React from 'react';
 export default function LoginForm(props) {
   return (
     <form onSubmit={props.handleLogin}>
+    { props.logInFailed ? "Usuário ou senha inválidos" : null }
+    <br />
       <label>
         Email
         <input name="email" type="email" placeholder="Email" />
@@ -14,6 +16,7 @@ export default function LoginForm(props) {
       </label>
       <br/>
       <button type="submit">Log in</button>
+
     </form>
   )
 }

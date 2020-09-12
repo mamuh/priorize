@@ -10,6 +10,7 @@ import LoginForm from './LoginForm';
 
 const Login = ({ history }) => {
   const [shouldDisplayForm, showForm] = useState(false);
+  const [logInFailed, handleFailure] = useState(false);
 
   const handleLogin = useCallback(async event => {
     event.preventDefault();
@@ -20,7 +21,7 @@ const Login = ({ history }) => {
         .signInWithEmailAndPassword(email.value, password.value);
       history.push("/vagas");
     } catch(error) {
-      alert("Usuário ou senha invalidos"); // TEMPORARY!! MAKE PROPER METHOD
+      handleFailure(true)
       email.value = "";
       password.value = "";
     }
@@ -50,7 +51,7 @@ const Login = ({ history }) => {
         <h1>P R I O R I Z E</h1>
         {
           shouldDisplayForm ?
-          <LoginForm handleLogin={handleLogin} />
+          <LoginForm handleLogin={handleLogin} logInFailed={logInFailed} />
           :
           <button onClick={handleClick}>Entrar com email</button>
         }
