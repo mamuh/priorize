@@ -2,14 +2,9 @@ import React, { useCallback, useContext, useState } from 'react';
 import { withRouter, Redirect } from 'react-router';
 import GlobalStyle from '../../styles/global';
 import { Container } from './styles';
-// import GoogleLogin from 'react-google-login';
-// import { useHistory } from 'react-router-dom';
 import app from '../../base';
 import { AuthContext } from '../../Auth';
 import LoginForm from './LoginForm';
-
-
-
 import * as firebase from "firebase/app";
 import "firebase/auth";
 
@@ -17,6 +12,7 @@ import "firebase/auth";
 
 const Login = ({ history }) => {
   const [shouldDisplayForm, showForm] = useState(false);
+  const [isLoading, handleLoad] = useState(false);
   const [logInFailed, handleFailure] = useState(false);
 
 
@@ -24,9 +20,11 @@ const Login = ({ history }) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
+      handleLoad(true);
       await app
         .auth()
         .signInWithEmailAndPassword(email.value, password.value);
+        handleLoad(false);
       history.push("/vagas");
     } catch(error) {
       handleFailure(true)
@@ -35,10 +33,23 @@ const Login = ({ history }) => {
     }
   }, [history]);
 
-  const handleGoogleLogin = () => {
+  // const handleGoogleLogin = () => {
+  //   const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+  //   firebase.auth().signInWithRedirect(googleAuthProvider);
+  // }
+
+  const handleGoogleLogin = useCallback(async event => {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithRedirect(googleAuthProvider);
-  }
+    event.preventDefault();
+    try {
+      handleLoad(true);
+      await firebase.auth().signInWithRedirect(googleAuthProvider);
+      handleLoad(false);
+      history.push("/vagas");
+    } catch(error) {
+      handleFailure(true)
+    }
+  }, [history]);
 
   // let history = useHistory()
 
@@ -58,19 +69,25 @@ const Login = ({ history }) => {
     showForm(true)
   }
 
+  console.log(currentUser)
+
   return (
     <Container>
       <div className="content">
         <h1>P R I O R I Z E</h1>
         {
           shouldDisplayForm ?
-          <LoginForm handleLogin={handleLogin} logInFailed={logInFailed} />
-          :
-          <>
-            <button onClick={handleClick}>Entrar com email</button>
-            <button onClick={handleGoogleLogin}>Entrar com Google</button>
-          </>
+          <LoginForm
+            handleLogin={handleLogin}
+            handleGoogleLogin={handleGoogleLogin}
+            logInFailed={logInFailed}
+            handleLoad={handleLoad}
+          />
+            :
+          <button onClick={handleClick}>Entrar com email</button>
         }
+          <button onClick={handleGoogleLogin}>Entrar com Google</button>
+        { isLoading ? "Carregando..." : null }
       </div>
     <GlobalStyle />
     </Container>

@@ -16,7 +16,6 @@ export default function LoginForm(props) {
       </label>
       <br/>
       <button type="submit">Log in</button>
-
     </form>
   )
 }
