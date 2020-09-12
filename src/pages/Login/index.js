@@ -8,9 +8,17 @@ import app from '../../base';
 import { AuthContext } from '../../Auth';
 import LoginForm from './LoginForm';
 
+
+
+import * as firebase from "firebase/app";
+import "firebase/auth";
+
+
+
 const Login = ({ history }) => {
   const [shouldDisplayForm, showForm] = useState(false);
   const [logInFailed, handleFailure] = useState(false);
+
 
   const handleLogin = useCallback(async event => {
     event.preventDefault();
@@ -26,6 +34,11 @@ const Login = ({ history }) => {
       password.value = "";
     }
   }, [history]);
+
+  const handleGoogleLogin = () => {
+    const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithRedirect(googleAuthProvider);
+  }
 
   // let history = useHistory()
 
@@ -53,7 +66,10 @@ const Login = ({ history }) => {
           shouldDisplayForm ?
           <LoginForm handleLogin={handleLogin} logInFailed={logInFailed} />
           :
-          <button onClick={handleClick}>Entrar com email</button>
+          <>
+            <button onClick={handleClick}>Entrar com email</button>
+            <button onClick={handleGoogleLogin}>Entrar com Google</button>
+          </>
         }
       </div>
     <GlobalStyle />
