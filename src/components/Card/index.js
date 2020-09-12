@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import actions from '../../actions';
-import c from 'classnames';
 import { Container } from './styles';
 import { Draggable } from 'react-beautiful-dnd';
 

@@ -7,7 +7,7 @@ import c from 'classnames';
 export default function Tab(props) {
   const dispatch = useDispatch()
   const currentTab = useSelector(state => state.currentTab);
-  const isActive = currentTab == props.name;
+  const isActive = currentTab === props.name;
 
   const changeTab = (e) => {
     dispatch(actions.changeCurrentTab(e.target.innerHTML))

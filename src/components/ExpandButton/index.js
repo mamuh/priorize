@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from './styles';
 import { useSelector, useDispatch } from 'react-redux';
-import actions from '../../actions';
 
 export default function ExpandButton() {
   const dispatch = useDispatch();

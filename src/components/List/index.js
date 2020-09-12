@@ -17,7 +17,7 @@ export default function List(props) {
       >
         <ul>
           {vagas.map((vaga, index) => (
-            props.currentTab == vaga.status ?
+            props.currentTab === vaga.status ?
               <Card key={vaga.id} index={index} id={vaga.id} name={`${vaga.id} - ${vaga.name}`} data={vaga} />
               :
              (null)
