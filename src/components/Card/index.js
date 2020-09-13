@@ -59,7 +59,7 @@ export default function Card(props) {
         <header>
           { true && <img src={ic_logo} alt="Logo da empresa" /> }
           <div className="job-name">
-            <h5>{id} - {titulo} - {qtd_aberta} vagas abertas</h5>
+            <h5>{id} - {titulo} - {qtd_aberta} vagas abertas (PRI{pri})</h5>
           </div>
           <h3>|||</h3>
         </header>
@@ -67,11 +67,11 @@ export default function Card(props) {
         <div className={isOpen ? "details card-expanded" : "details"}>
           <div>
             <p className="faded">Abertura:</p>
-            <p className="card-data">{criado_em}</p>
+            <p className="card-data">{criado_em.substring(0, 10)}</p>
           </div>
           <div>
             <p className="faded">Término:</p>
-            <p className="card-data">{expira_em}</p>
+            <p className="card-data">{expira_em.substring(0, 10)}</p>
           </div>
           <div>
             <p className="faded">Vagas:</p>
@@ -80,7 +80,7 @@ export default function Card(props) {
           <div>
             <p className="faded">Remuneração:</p>
             <div className="card-data remuneracao">
-            R$ XXXX
+            {vlr_clt}
             </div>
           </div>
           <div>

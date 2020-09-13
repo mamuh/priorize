@@ -27,7 +27,6 @@ export default function List(props) {
         vagasList.push(vagas[id])
       }
       setVagas(vagasList)
-      console.log(vagasList)
     })
   }, [])
 
