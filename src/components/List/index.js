@@ -7,19 +7,7 @@ import firebase from "firebase";
 import app from '../../base';
 
 export default function List(props) {
-
-  // const vag = useSelector(state => state.vagas)
   const [vagas, setVagas] = useState([])
-
-
-  // const getVagasData = () => {
-  //   let ref = firebase.database().ref('hr')
-  //   ref.on('value', snapshot => {
-  //     const state = snapshot.val()
-  //     setVagas(['hi', 'ho'])
-  //     console.log(vagas)
-  //   })
-  // }
 
   // const addTest = () => {
   //   const value = "testing again"
