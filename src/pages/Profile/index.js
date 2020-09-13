@@ -15,7 +15,7 @@ function Profile() {
   //   history.push('/')
   // }
 
-  console.log(firebase.auth().currentUser)
+  // console.log(firebase.auth().currentUser)
 
   const { displayName, email, photoURL } = firebase.auth().currentUser
 

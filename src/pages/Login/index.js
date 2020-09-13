@@ -69,8 +69,6 @@ const Login = ({ history }) => {
     showForm(true)
   }
 
-  console.log(currentUser)
-
   return (
     <Container>
       <div className="content">
