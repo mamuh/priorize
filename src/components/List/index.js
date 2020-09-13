@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import actions from '../../actions';
 import Card from '../Card';
 import { Container } from './styles';
 import { Droppable } from 'react-beautiful-dnd';
@@ -7,7 +8,9 @@ import firebase from "firebase";
 import app from '../../base';
 
 export default function List(props) {
-  const [vagas, setVagas] = useState([])
+  // const [vagas, setVagas] = useState([])
+  const vagas = useSelector(state => state.vagas)
+  const dispatch = useDispatch()
 
   // const addTest = () => {
   //   const value = "testing again"
@@ -21,12 +24,13 @@ export default function List(props) {
   useEffect(() => {
     const dbRef = app.database().ref('hr')
     dbRef.on('value', snapshot => {
-      const vagas = snapshot.val()
+      const vags = snapshot.val()
       const vagasList = []
-      for (let id in vagas) {
-        vagasList.push(vagas[id])
+      for (let id in vags) {
+        vagasList.push({ id, ...vags[id] })
       }
-      setVagas(vagasList)
+      dispatch(actions.setVagas(vagasList))
+      console.log(vags)
     })
   }, [])
 
@@ -38,12 +42,9 @@ export default function List(props) {
         {...provided.droppableProps}
       >
         <ul>
-          {vagas.map((vaga, index) => (
-            // props.currentTab === vaga.status ?
-              <li key={vaga.id}><Card index={index} id={vaga.id} data={vaga} /></li>
-             //  :
-             // (null)
-          ))}
+        {vagas ? vagas.map((vaga, index) => (
+          <Card key={index} index={index} cardId={vaga.id} vaga={vaga} />
+         )) : (null)}
         </ul>
 
         <img src="https://image.flaticon.com/icons/svg/463/463292.svg" alt="" width="100" className="footer-clear" />
@@ -54,4 +55,9 @@ export default function List(props) {
 }
 
 
-        // <button onClick={addTest}>Add to DB</button>
+          // {vagas.map((vaga, index) => (
+          //   // props.currentTab === vaga.status ?
+          //     <li key={vaga.id}><Card index={index} data={vaga} /></li>
+          //    //  :
+          //    // (null)
+          // ))}

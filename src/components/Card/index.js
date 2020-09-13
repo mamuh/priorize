@@ -5,27 +5,27 @@ import { Container } from './styles';
 import { Draggable } from 'react-beautiful-dnd';
 
 
-export default function Card(props) {
-  const {
-    id,
-    criado_em,
-    expira_em,
-    ic_logo,
-    key,
-    nom_cliente,
-    nom_gerente_comercial,
-    nom_recrutadora,
-    pct_marg,
-    pri,
-    qtd_aberta,
-    qtd_total,
-    status,
-    tip_contrato,
-    titulo,
-    vlr_ben,
-    vlr_clt,
-    vlr_fat
-  } = props.data
+export default function Card({ vaga, index, cardId }) {
+  // const {
+  //   id,
+  //   criado_em,
+  //   expira_em,
+  //   ic_logo,
+  //   key,
+  //   nom_cliente,
+  //   nom_gerente_comercial,
+  //   nom_recrutadora,
+  //   pct_marg,
+  //   pri,
+  //   qtd_aberta,
+  //   qtd_total,
+  //   status,
+  //   tip_contrato,
+  //   titulo,
+  //   vlr_ben,
+  //   vlr_clt,
+  //   vlr_fat
+  // } = vaga
   let [isOpen, toggleCard] = useState(false)
   const allExpanded = useSelector(state => state.allExpanded)
   const ignoreExpanded = useSelector(state => state.ignoreExpanded)
@@ -48,7 +48,7 @@ export default function Card(props) {
   })
 
   return (
-    <Draggable draggableId={id.toString()} index={props.index}>
+    <Draggable draggableId={cardId.toString()} index={index}>
     {(provided, snapshot) => (
       <Container
         onClick={() => toggleExpanded()}
@@ -57,9 +57,9 @@ export default function Card(props) {
         {...provided.dragHandleProps}
       >
         <header>
-          { true && <img src={ic_logo} alt="Logo da empresa" /> }
+          { true && <img src={vaga.ic_logo} alt="Logo da empresa" /> }
           <div className="job-name">
-            <h5>{id} - {titulo} - {qtd_aberta} vagas abertas (PRI{pri})</h5>
+            <h5>{vaga.id} - {vaga.titulo} - {vaga.qtd_aberta} vagas abertas (PRI{vaga.pri})</h5>
           </div>
           <h3>|||</h3>
         </header>
@@ -67,25 +67,25 @@ export default function Card(props) {
         <div className={isOpen ? "details card-expanded" : "details"}>
           <div>
             <p className="faded">Abertura:</p>
-            <p className="card-data">{criado_em.substring(0, 10)}</p>
+            <p className="card-data">{vaga.criado_em && vaga.criado_em.substr(0,10)}</p>
           </div>
           <div>
             <p className="faded">Término:</p>
-            <p className="card-data">{expira_em.substring(0, 10)}</p>
+            <p className="card-data">{vaga.expira_em && vaga.expira_em.substr(0,10)}</p>
           </div>
           <div>
             <p className="faded">Vagas:</p>
-            <p className="card-data">{qtd_aberta}/{qtd_total}</p>
+            <p className="card-data">{vaga.qtd_aberta}/{vaga.qtd_total}</p>
           </div>
           <div>
             <p className="faded">Remuneração:</p>
             <div className="card-data remuneracao">
-            {vlr_clt}
+            {vaga.vlr_clt}
             </div>
           </div>
           <div>
             <p className="faded">Vendas:</p>
-            <p className="card-data">{vlr_fat}</p>
+            <p className="card-data">{vaga.vlr_fat}</p>
           </div>
         </div>
       </Container>
