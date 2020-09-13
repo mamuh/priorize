@@ -21,17 +21,17 @@ export default function List(props) {
   //   })
   // }
 
-  const addTest = () => {
-    const value = "testing again"
-    const dbRef = app.database().ref('test')
-    const test = {
-      value
-    }
-    dbRef.push(test)
-  }
+  // const addTest = () => {
+  //   const value = "testing again"
+  //   const dbRef = app.database().ref('test')
+  //   const test = {
+  //     value
+  //   }
+  //   dbRef.push(test)
+  // }
 
   useEffect(() => {
-    const dbRef = app.database().ref('test')
+    const dbRef = app.database().ref('hr')
     dbRef.on('value', snapshot => {
       const vagas = snapshot.val()
       const vagasList = []
@@ -51,10 +51,14 @@ export default function List(props) {
         {...provided.droppableProps}
       >
         <ul>
-          {vagas.map((vaga, index) => ( <li>{index}-{vaga.value}</li> ))}
+          {vagas.map((vaga, index) => (
+            // props.currentTab === vaga.status ?
+              <li key={vaga.id}><Card index={index} id={vaga.id} data={vaga} /></li>
+             //  :
+             // (null)
+          ))}
         </ul>
 
-        <button onClick={addTest}>Add to DB</button>
         <img src="https://image.flaticon.com/icons/svg/463/463292.svg" alt="" width="100" className="footer-clear" />
       </Container>
     )}
@@ -62,9 +66,5 @@ export default function List(props) {
   );
 }
 
-          // {vagas.map((vaga, index) => (
-          //   props.currentTab === vaga.status ?
-          //     <Card key={vaga.id} index={index} id={vaga.id} name={`${vaga.id} - ${vaga.name}`} data={vaga} />
-          //     :
-          //    (null)
-          // ))}
+
+        // <button onClick={addTest}>Add to DB</button>
