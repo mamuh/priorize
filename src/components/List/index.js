@@ -33,9 +33,15 @@ export default function List(props) {
   useEffect(() => {
     const dbRef = app.database().ref('test')
     dbRef.on('value', snapshot => {
-      console.log(snapshot.val())
+      const vagas = snapshot.val()
+      const vagasList = []
+      for (let id in vagas) {
+        vagasList.push(vagas[id])
+      }
+      setVagas(vagasList)
+      console.log(vagasList)
     })
-  })
+  }, [])
 
   return (
   <Droppable droppableId="priorizadas">
@@ -45,12 +51,7 @@ export default function List(props) {
         {...provided.droppableProps}
       >
         <ul>
-          {vagas.map((vaga, index) => (
-            props.currentTab === vaga.status ?
-              <Card key={vaga.id} index={index} id={vaga.id} name={`${vaga.id} - ${vaga.name}`} data={vaga} />
-              :
-             (null)
-          ))}
+          {vagas.map((vaga, index) => ( <li>{index}-{vaga.value}</li> ))}
         </ul>
 
         <button onClick={addTest}>Add to DB</button>
@@ -60,3 +61,10 @@ export default function List(props) {
   </Droppable>
   );
 }
+
+          // {vagas.map((vaga, index) => (
+          //   props.currentTab === vaga.status ?
+          //     <Card key={vaga.id} index={index} id={vaga.id} name={`${vaga.id} - ${vaga.name}`} data={vaga} />
+          //     :
+          //    (null)
+          // ))}
