@@ -30,7 +30,7 @@ export default function List(props) {
         vagasList.push({ id, ...vags[id] })
       }
       dispatch(actions.setVagas(vagasList))
-      console.log(vags)
+      console.log(vagasList)
     })
   }, [])
 

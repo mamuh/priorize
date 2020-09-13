@@ -48,10 +48,10 @@ export default function Card({ vaga, index, cardId }) {
   })
 
   return (
-    <Draggable draggableId={cardId.toString()} index={index}>
+    <Draggable draggableId={index.toString()} index={index}>
     {(provided, snapshot) => (
       <Container
-        onClick={() => toggleExpanded()}
+        //onClick={() => toggleExpanded()}
         ref={provided.innerRef}
         {...provided.draggableProps}
         {...provided.dragHandleProps}

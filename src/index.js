@@ -13,8 +13,6 @@ import { createBrowserHistory as history } from 'history';
 import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
 
-import { initialState } from './temporary_db';
-
 import vagasReducer from './reducers/vagas_reducer';
 import currentTabReducer from './reducers/current_tab_reducer';
 import expandedReducer from './reducers/expanded_reducer';
@@ -33,7 +31,6 @@ const middlewares = applyMiddleware(logger);
 ReactDOM.render(
     <Provider store={createStore(
       reducers,
-      initialState,
       composeEnhancers(middlewares)
     )}>
       <AuthProvider>
