@@ -44,11 +44,12 @@ const Login = ({ history }) => {
     console.log("google login")
     try {
       handleLoad(true);
-      await firebase.auth().signInWithRedirect(googleAuthProvider);
+      await firebase.auth().signInWithPopup(googleAuthProvider);
       handleLoad(false);
       history.push("/vagas");
     } catch(error) {
       handleFailure(true)
+      console.log(error)
     }
   }, [history]);
 
