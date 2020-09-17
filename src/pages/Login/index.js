@@ -39,8 +39,9 @@ const Login = ({ history }) => {
   // }
 
   const handleGoogleLogin = useCallback(async event => {
-    const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
     event.preventDefault();
+    const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+    console.log("google login")
     try {
       handleLoad(true);
       await firebase.auth().signInWithRedirect(googleAuthProvider);
