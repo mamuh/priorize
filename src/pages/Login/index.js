@@ -38,30 +38,19 @@ const Login = ({ history }) => {
   //   firebase.auth().signInWithRedirect(googleAuthProvider);
   // }
 
-  const handleGoogleLogin = (event) => {
+  const handleGoogleLogin = useCallback(async event => {
     event.preventDefault();
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-
-    firebase.auth().signInWithPopup(googleAuthProvider).then(function(result) {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      var token = result.credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      // ...
-    }).catch(function(error) {
+    try {
+      handleLoad(true);
+      await firebase.auth().signInWithRedirect(googleAuthProvider);
+      handleLoad(false);
+      history.push("/vagas");
+    } catch(error) {
+      handleFailure(true)
       console.log(error)
-    });
-  }
-
-
-
-
-
-  //   firebase.auth().signInWithPopup(googleAuthProvider).then(function(result) {
-  //     console.log(result)
-  //     console.log("google login")
-  //   )}
-  // }, [history]);
+    }
+  }, [history]);
 
   // let history = useHistory()
 
