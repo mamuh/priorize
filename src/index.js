@@ -26,12 +26,12 @@ const reducers = combineReducers({
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const middlewares = applyMiddleware(logger);
+// const middlewares = applyMiddleware(logger);
 
 ReactDOM.render(
     <Provider store={createStore(
       reducers,
-      composeEnhancers(middlewares)
+      // composeEnhancers(middlewares)
     )}>
       <AuthProvider>
         <Router history={history}>

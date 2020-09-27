@@ -45,21 +45,21 @@ export default function Board() {
 
     if(startIndex > endIndex) {
       // update PRI from vagasOriginal[endIndex] to vagasOriginal[startIndex]
-      app.database().ref('hr').child(`2952`).update({
-        pri: endIndex
+      app.database().ref('hr').child(result.draggableId).update({
+        pri: endIndex + 1
       })
       for(let i = endIndex; i <= startIndex; i++) {
-        console.log(i)
+        // console.log(i)
       }
-      console.log('array is going down')
+      // console.log('array is going down')
     } else {
-      app.database().ref('hr').child(`2952`).update({
-        pri: endIndex
+      app.database().ref('hr').child(result.draggableId).update({
+        pri: endIndex + 1
       })
       for(let i = endIndex; i <= startIndex; i++) {
-        console.log(i)
+        // console.log(i)
       }
-      console.log('array is going UP')
+      // console.log('array is going UP')
     }
 
 

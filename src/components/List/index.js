@@ -30,7 +30,6 @@ export default function List(props) {
         vagasList.push({
           ...child.val()
         })
-        console.log(child.val())
       })
       // for (let id in vags) {
       //   vagasList.push({

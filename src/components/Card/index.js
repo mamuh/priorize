@@ -48,7 +48,7 @@ export default function Card({ vaga, index, cardId }) {
   })
 
   return (
-    <Draggable draggableId={index.toString()} index={index}>
+    <Draggable draggableId={vaga.id.toString()} index={index}>
     {(provided, snapshot) => (
       <Container
         //onClick={() => toggleExpanded()}
