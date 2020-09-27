@@ -22,15 +22,24 @@ export default function List(props) {
   // }
 
   useEffect(() => {
-    const dbRef = app.database().ref('hr')
+    const dbRef = app.database().ref('hr').orderByChild('pri')
     dbRef.on('value', snapshot => {
       const vags = snapshot.val()
       const vagasList = []
-      for (let id in vags) {
-        vagasList.push({ id, ...vags[id] })
-      }
+      snapshot.forEach((child, index) => {
+        vagasList.push({
+          ...child.val()
+        })
+        console.log(child.val())
+      })
+      // for (let id in vags) {
+      //   vagasList.push({
+      //     // id,
+      //     ...vags[id]
+      //   })
+      // }
       dispatch(actions.setVagas(vagasList))
-      console.log(vagasList)
+      // console.log(vags)
     })
   }, [])
 
