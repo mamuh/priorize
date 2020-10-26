@@ -14,15 +14,17 @@ export default function Board() {
 
   const onDragEnd = (result) => {
     console.log(result)
+    const selectedVagaId = vagas[result.source.index].id
+    console.log(selectedVagaId)
     if(!result.destination) { return; }
     const startIndex = result.source.index
     const endIndex = result.destination.index
-    const vagasCopy = Array.from(vagas)
-    const vagasOriginal = Array.from(vagas)
+    const vagasCopy = [...vagas]
+    const vagasOriginal = [...vagas]
     const [removed] = vagasCopy.splice(startIndex, 1)
     vagasCopy.splice(endIndex, 0, removed)
     dispatch(actions.setVagas(vagasCopy))
-    console.log(vagasCopy)
+    // console.log(vagasCopy)
     // set PRI of draggableID to endIndex
     // 1,2,3,4,5,6,7 start5, end0 (6 coisas vao mudar de lugar)
     // do index 0 a 4 vao ganhar ++
@@ -43,34 +45,39 @@ export default function Board() {
     // finaliza coloando index 2 no index 4
     // o end index eh maior do q o original, --
 
-    if(startIndex > endIndex) {
+    let updates = {}
+
+    // app.database().ref("hr").update({
+    //   "4492/pri": 1,
+    //   "4526/pri": 2,
+    // });
+
+    if(startIndex > endIndex) { // movendo de baixo pra cima
       // update PRI from vagasOriginal[endIndex] to vagasOriginal[startIndex]
-      app.database().ref('hr').child(result.draggableId).update({
-        pri: endIndex + 1
-      })
-      for(let i = endIndex; i <= startIndex; i++) {
-        // console.log(i)
+      // app.database().ref('hr').child(selectedVaga).update({
+      //   pri: endIndex + 1
+      // })
+      for(let i = endIndex; i <= startIndex - 1; i++) {
+        vagasOriginal[i].pri = i + 1
+        updates[`${vagasOriginal[i].id}/pri`] = vagasOriginal[i].pri
       }
-      // console.log('array is going down')
+      vagasOriginal[startIndex].pri = endIndex
+      updates[`${selectedVagaId}/pri`] = endIndex
     } else {
-      app.database().ref('hr').child(result.draggableId).update({
-        pri: endIndex + 1
-      })
-      for(let i = endIndex; i <= startIndex; i++) {
-        // console.log(i)
+      // app.database().ref('hr').child(selectedVaga).update({
+      //   pri: endIndex + 1
+      // })
+      for(let i = startIndex + 1; i <= endIndex; i++) {
+        vagasOriginal[i].pri = i - 1
+        updates[`${vagasOriginal[i].id}/pri`] = vagasOriginal[i].pri
       }
-      // console.log('array is going UP')
+      vagasOriginal[startIndex].pri = endIndex
+      updates[`${selectedVagaId}/pri`] = endIndex
     }
+      console.log(updates)
 
-
+    app.database().ref("hr").update(updates);
   }
-
-  // const updateDatabase = (vaga, endIndex) => {
-  //   const dbRef = app.database().ref('hr').child(vaga.id)
-  //   dbRef.update({
-  //     pri: endIndex
-  //   })
-  // }
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>

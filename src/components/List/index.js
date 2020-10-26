@@ -53,6 +53,7 @@ export default function List(props) {
         {vagas ? vagas.map((vaga, index) => (
           <Card key={index} index={index} cardId={vaga.id} vaga={vaga} />
          )) : (null)}
+        {provided.placeholder}
         </ul>
 
         <img src="https://image.flaticon.com/icons/svg/463/463292.svg" alt="" width="100" className="footer-clear" />
@@ -61,11 +62,3 @@ export default function List(props) {
   </Droppable>
   );
 }
-
-
-          // {vagas.map((vaga, index) => (
-          //   // props.currentTab === vaga.status ?
-          //     <li key={vaga.id}><Card index={index} data={vaga} /></li>
-          //    //  :
-          //    // (null)
-          // ))}

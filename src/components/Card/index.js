@@ -48,7 +48,7 @@ export default function Card({ vaga, index, cardId }) {
   })
 
   return (
-    <Draggable draggableId={vaga.id.toString()} index={index}>
+    <Draggable draggableId={index.toString()} index={index}>
     {(provided, snapshot) => (
       <Container
         //onClick={() => toggleExpanded()}
@@ -57,7 +57,7 @@ export default function Card({ vaga, index, cardId }) {
         {...provided.dragHandleProps}
       >
         <header>
-          { true && <img src={vaga.ic_logo} alt="Logo da empresa" /> }
+          { vaga.ic_logo && <img src={vaga.ic_logo} alt="Logo da empresa" /> }
           <div className="job-name">
             <h5>{vaga.id} - {vaga.titulo} - {vaga.qtd_aberta} vagas abertas (PRI{vaga.pri})</h5>
           </div>
@@ -93,5 +93,3 @@ export default function Card({ vaga, index, cardId }) {
     </Draggable>
   );
 }
-
-            // {remuneracao.map((rem, index) => (<div key={index}>{rem.tipo}: {rem.valor}</div>))}
