@@ -17,12 +17,12 @@ export default function Card({ vaga, index, cardId }) {
 
   useEffect(() => {
     if (!ignoreExpanded) {
-      if (allExpanded) {
-        toggleCard(true)
-      } else {
-        toggleCard(false)
-      }
-      // allExpanded ? toggleCard(true) : toggleCard(false)
+      // if (allExpanded) {
+      //   toggleCard(true)
+      // } else {
+      //   toggleCard(false)
+      // }
+      toggleCard(allExpanded)
     }
   })
 

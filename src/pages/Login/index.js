@@ -71,8 +71,8 @@ const Login = ({ history }) => {
 
   return (
     <Container>
-      <div className="content">
-        <h1>P R I O R I Z E</h1>
+      <div className="login-content">
+        <img src="https://i.ibb.co/55JZpkK/New-Project.png" alt="priorize" width="350"/>
         {
           shouldDisplayForm ?
           <LoginForm

@@ -2,20 +2,14 @@ import React from 'react';
 
 export default function LoginForm(props) {
   return (
-    <form onSubmit={props.handleLogin}>
+    <form id="login-form" onSubmit={props.handleLogin}>
     { props.logInFailed ? "Usuário ou senha inválidos" : null }
     <br />
-      <label>
-        Email
-        <input name="email" type="email" placeholder="Email" />
-      </label>
+     <input name="email" type="email" placeholder="Email" />
       <br/>
-      <label>
-        Password
-        <input name="password" type="password" placeholder="Password" />
-      </label>
+      <input name="password" type="password" placeholder="Senha" />
       <br/>
-      <button type="submit">Log in</button>
+      <button id="login-btn" type="submit">Log in</button>
     </form>
   )
 }
