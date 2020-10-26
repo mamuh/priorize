@@ -8,18 +8,8 @@ import firebase from "firebase";
 import app from '../../base';
 
 export default function List(props) {
-  // const [vagas, setVagas] = useState([])
   const vagas = useSelector(state => state.vagas)
   const dispatch = useDispatch()
-
-  // const addTest = () => {
-  //   const value = "testing again"
-  //   const dbRef = app.database().ref('test')
-  //   const test = {
-  //     value
-  //   }
-  //   dbRef.push(test)
-  // }
 
   useEffect(() => {
     const dbRef = app.database().ref('hr').orderByChild('pri')
@@ -31,14 +21,7 @@ export default function List(props) {
           ...child.val()
         })
       })
-      // for (let id in vags) {
-      //   vagasList.push({
-      //     // id,
-      //     ...vags[id]
-      //   })
-      // }
       dispatch(actions.setVagas(vagasList))
-      // console.log(vags)
     })
   }, [])
 

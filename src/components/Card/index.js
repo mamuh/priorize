@@ -4,33 +4,11 @@ import actions from '../../actions';
 import { Container } from './styles';
 import { Draggable } from 'react-beautiful-dnd';
 
-
 export default function Card({ vaga, index, cardId }) {
-  // const {
-  //   id,
-  //   criado_em,
-  //   expira_em,
-  //   ic_logo,
-  //   key,
-  //   nom_cliente,
-  //   nom_gerente_comercial,
-  //   nom_recrutadora,
-  //   pct_marg,
-  //   pri,
-  //   qtd_aberta,
-  //   qtd_total,
-  //   status,
-  //   tip_contrato,
-  //   titulo,
-  //   vlr_ben,
-  //   vlr_clt,
-  //   vlr_fat
-  // } = vaga
   let [isOpen, toggleCard] = useState(false)
   const allExpanded = useSelector(state => state.allExpanded)
   const ignoreExpanded = useSelector(state => state.ignoreExpanded)
   const dispatch = useDispatch()
-
 
   const toggleExpanded = () => {
     dispatch(actions.toggleIgnoreExpanded(true))
@@ -44,6 +22,7 @@ export default function Card({ vaga, index, cardId }) {
       } else {
         toggleCard(false)
       }
+      // allExpanded ? toggleCard(true) : toggleCard(false)
     }
   })
 

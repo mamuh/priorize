@@ -8,13 +8,10 @@ import LoginForm from './LoginForm';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 
-
-
 const Login = ({ history }) => {
   const [shouldDisplayForm, showForm] = useState(false);
   const [isLoading, handleLoad] = useState(false);
   const [logInFailed, handleFailure] = useState(false);
-
 
   const handleLogin = useCallback(async event => {
     event.preventDefault();
@@ -33,11 +30,6 @@ const Login = ({ history }) => {
     }
   }, [history]);
 
-  // const handleGoogleLogin = () => {
-  //   const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-  //   firebase.auth().signInWithRedirect(googleAuthProvider);
-  // }
-
   const handleGoogleLogin = useCallback(async event => {
     event.preventDefault();
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
@@ -51,14 +43,6 @@ const Login = ({ history }) => {
       console.log(error)
     }
   }, [history]);
-
-  // let history = useHistory()
-
-  // const responseGoogle = (response) => {
-  //   console.log(response);
-  //   console.log(response.profileObj)
-  //   history.push('/vagas')
-  // }
 
   const { currentUser } = useContext(AuthContext);
 
@@ -94,13 +78,3 @@ const Login = ({ history }) => {
 }
 
 export default withRouter(Login);
-
-//
-          // <GoogleLogin
-          //   clientId="914438730685-ph5j5bkec0v0eicoeo8lagp763nor8aj.apps.googleusercontent.com"
-          //   buttonText="ENTRAR COM GOOGLE"
-          //   onSuccess={responseGoogle}
-          //   onFailure={null}
-          //   cookiePolicy={'single_host_origin'}
-          //   isSignedIn={true}
-          // />
