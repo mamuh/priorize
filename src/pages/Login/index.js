@@ -30,19 +30,34 @@ const Login = ({ history }) => {
     }
   }, [history]);
 
-  const handleGoogleLogin = useCallback(async event => {
+  // const handleGoogleLogin = useCallback(async event => {
+  //   event.preventDefault();
+  //   showForm(false)
+  //   const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+  //   try {
+  //     handleLoad(true);
+  //     await firebase.auth().signInWithRedirect(googleAuthProvider);
+  //     handleLoad(false);
+  //     history.push("/vagas");
+  //   } catch(error) {
+  //     handleFailure(true)
+  //     console.log(error)
+  //   }
+  // }, [history]);
+
+  const handleMicrosoftLogin = (event) => {
     event.preventDefault();
-    const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-    try {
-      handleLoad(true);
-      await firebase.auth().signInWithRedirect(googleAuthProvider);
-      handleLoad(false);
-      history.push("/vagas");
-    } catch(error) {
-      handleFailure(true)
-      console.log(error)
-    }
-  }, [history]);
+    showForm(false)
+    var provider = new firebase.auth.OAuthProvider('microsoft.com');
+
+    firebase.auth().signInWithRedirect(provider)
+      .then(function(result) {
+        history.push("/vagas");
+      })
+      .catch(function(error) {
+        console.log(error)
+      });
+  }
 
   const { currentUser } = useContext(AuthContext);
 
@@ -62,14 +77,14 @@ const Login = ({ history }) => {
           shouldDisplayForm ?
           <LoginForm
             handleLogin={handleLogin}
-            handleGoogleLogin={handleGoogleLogin}
+            // handleGoogleLogin={handleGoogleLogin}
             logInFailed={logInFailed}
             handleLoad={handleLoad}
           />
             :
           <button onClick={handleClick}>Entrar com email</button>
         }
-          <button onClick={handleGoogleLogin}>Entrar com Google</button>
+          <button onClick={handleMicrosoftLogin}>Entrar com Email Sysmap</button>
         { isLoading ? "Carregando..." : null }
       </div>
     <GlobalStyle />

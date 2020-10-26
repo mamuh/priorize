@@ -15,7 +15,6 @@ export default function Board() {
   const onDragEnd = (result) => {
     console.log(result)
     const selectedVagaId = vagas[result.source.index].id
-    console.log(selectedVagaId)
     if(!result.destination) { return; }
     const startIndex = result.source.index
     const endIndex = result.destination.index
